@@ -111,8 +111,29 @@ def for_ex():
 def list_comprehension():
     """
     리스트 내포
-    Syntax: [표
+    Syntax: [표현식 for 타겟 in 순차자료형]
     """
+    data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    # 내부 요소들을 2배한 새 리스트를 생성
+
+    result = []
+    for num in data:
+        result.append(num * 2)
+
+    print(data)
+    print(result)
+
+    result = [ 2 * num for num in data]
+    print(result)
+
+    strings = ["a", "as", "bat", "car", "dove", "python"]
+    # 문자열 리스트에서 문자열의 길이 3이상인 문자열 목록 만들기
+    result = [s.upper() for s in strings if len(s) >= 3]
+    print(result)
+
+    # 1 ~ 100 정수 중 3의 배수만 뽑아서 새 리스트 생성
+    result = [num for num in range(1, 101) if num % 3 == 0]
+    print(result)
 
 
 def set_comprehension():
@@ -131,15 +152,18 @@ def dict_comprehension():
     """
     dict comprehension
     : Syntax : {키표현식:값표현식 for 타겟변수 in 순차자료형}
+    :return:
     """
     strings = ["a", "as", "bat", "car", "dove", "python"]
-    # {"a":1, "as":2, ... , "python":6}
+    # {"a":1, "as":2, ... , "python": 6}
     len_dict = {s: len(s) for s in strings}
     print(len_dict)
+
 
 if __name__ == "__main__":
     # if_statement()
     # cond_expr()
     # for_ex()
+    # list_comprehension()
     # set_comprehension()
     dict_comprehension()
